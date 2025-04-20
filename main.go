@@ -1360,6 +1360,7 @@ func (t *TraefikOidc) buildAuthURL(redirectURL, state, nonce, codeChallenge stri
 	// Add prompt=consent for Google to ensure refresh token is issued
 	if isGoogleProvider {
 		params.Set("prompt", "consent")
+		params.Set("access_type", "offline")
 		t.logger.Debug("Google OIDC provider detected, added prompt=consent to ensure refresh tokens")
 	}
 
